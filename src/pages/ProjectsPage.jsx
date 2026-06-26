@@ -52,7 +52,7 @@ export default function ProjectsPage() {
           <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.25em', textTransform: 'uppercase' }}>
             Our Portfolio
           </span>
-          <h1 className="editorial-title" style={{ fontSize: '3.75rem', marginTop: '0.5rem', marginBottom: '1.25rem' }}>
+          <h1 className="editorial-title" style={{ marginTop: '0.5rem', marginBottom: '1.25rem' }}>
             Spaces We've Built
           </h1>
           <p className="editorial-subtitle" style={{ margin: '0 auto', maxWidth: '680px' }}>
@@ -68,7 +68,7 @@ export default function ProjectsPage() {
           backgroundColor: 'var(--bg-secondary)',
           borderRadius: '12px',
           border: '1px solid var(--border-color)',
-          padding: '2.5rem',
+          padding: 'clamp(1.25rem, 5vw, 2.5rem)',
           marginBottom: '4rem',
           boxShadow: 'var(--shadow-subtle)'
         }}>
@@ -156,7 +156,7 @@ export default function ProjectsPage() {
         ) : (
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '2.5rem'
           }}>
             {displayedProjects.map((proj) => (
@@ -293,7 +293,7 @@ export default function ProjectsPage() {
             backgroundColor: 'var(--bg-primary)',
             borderRadius: '12px',
             border: '1px solid var(--border-color)',
-            padding: '3rem',
+            padding: 'clamp(1.25rem, 5vw, 3rem)',
             width: '100%',
             maxWidth: '680px',
             position: 'relative',
@@ -328,9 +328,7 @@ export default function ProjectsPage() {
               <img src={activeProject.image} alt={activeProject.client} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
+            <div className="responsive-two-column-grid" style={{
               gap: '1.5rem',
               fontSize: '0.85rem',
               borderBottom: '1px solid var(--border-color)',

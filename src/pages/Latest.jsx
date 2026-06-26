@@ -132,7 +132,7 @@ export default function Latest({ setCurrentPage }) {
           <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
             Updates & Insights
           </span>
-          <h1 className="editorial-title" style={{ fontSize: '4rem', marginTop: '0.5rem', marginBottom: '1.5rem', lineHeight: '1.1' }}>
+          <h1 className="editorial-title" style={{ marginTop: '0.5rem', marginBottom: '1.5rem' }}>
             Latest from Ergo Space
           </h1>
           <p className="editorial-subtitle" style={{ margin: '0 auto', maxWidth: '650px' }}>
@@ -186,7 +186,7 @@ export default function Latest({ setCurrentPage }) {
         {/* Articles Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: '3rem'
         }}>
           {filteredArticles.map((art) => (

@@ -23,7 +23,7 @@ export default function MarketAreas() {
           <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.25em', textTransform: 'uppercase' }}>
             Corporate Reach
           </span>
-          <h1 className="editorial-title" style={{ fontSize: '3.75rem', marginTop: '0.5rem', marginBottom: '1.25rem' }}>
+          <h1 className="editorial-title" style={{ marginTop: '0.5rem', marginBottom: '1.25rem' }}>
             Market Area
           </h1>
           <p className="editorial-subtitle" style={{ margin: '0 auto', maxWidth: '650px' }}>
@@ -61,11 +61,7 @@ export default function MarketAreas() {
             </div>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '2rem'
-          }}>
+          <div className="responsive-two-column-grid" style={{ gap: '2rem' }}>
             <div style={{ padding: '2rem', backgroundColor: 'var(--bg-tertiary)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
               <Calendar size={24} color="var(--accent)" style={{ marginBottom: '1rem' }} />
               <div style={{ fontSize: '1.75rem', fontWeight: 600, color: 'var(--text-primary)' }}>2004</div>

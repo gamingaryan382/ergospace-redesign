@@ -72,7 +72,7 @@ export default function WorkspaceSolutions() {
           <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
             ErgoSpace commercial
           </span>
-          <h1 className="editorial-title" style={{ fontSize: '3.75rem', marginTop: '0.5rem', marginBottom: '1rem' }}>
+          <h1 className="editorial-title" style={{ marginTop: '0.5rem', marginBottom: '1rem' }}>
             Workspace Solutions
           </h1>
           <p className="editorial-subtitle" style={{ margin: '0 auto', maxWidth: '650px' }}>
@@ -115,7 +115,7 @@ export default function WorkspaceSolutions() {
         {/* Main Solution Display */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: '5rem',
           alignItems: 'center',
           animation: 'fadeIn 0.5s ease-out'
@@ -126,7 +126,7 @@ export default function WorkspaceSolutions() {
             overflow: 'hidden',
             boxShadow: 'var(--shadow-premium)',
             border: '1px solid var(--border-color)',
-            height: '450px'
+            height: 'clamp(280px, 45vw, 450px)'
           }}>
             <img src={current.image} alt={current.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
@@ -139,7 +139,7 @@ export default function WorkspaceSolutions() {
             
             <h2 style={{
               fontFamily: 'var(--font-display)',
-              fontSize: '2.5rem',
+              fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
               fontWeight: 600,
               margin: '0.5rem 0 1.25rem 0',
               lineHeight: 1.15

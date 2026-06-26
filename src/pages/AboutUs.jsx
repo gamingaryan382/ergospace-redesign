@@ -20,7 +20,7 @@ export default function AboutUs({ setCurrentPage }) {
           <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
             Our Heritage
           </span>
-          <h1 className="editorial-title" style={{ fontSize: '4rem', marginTop: '0.5rem', marginBottom: '1.5rem', lineHeight: '1.1' }}>
+          <h1 className="editorial-title" style={{ marginTop: '0.5rem', marginBottom: '1.5rem' }}>
             Our Journey So Far
           </h1>
           <p className="editorial-subtitle" style={{ margin: '0 auto', maxWidth: '800px', lineHeight: '1.8', fontWeight: 300 }}>
@@ -31,7 +31,7 @@ export default function AboutUs({ setCurrentPage }) {
         {/* Founder & History Row */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: '4rem',
           alignItems: 'center',
           marginBottom: '6rem',
@@ -45,7 +45,7 @@ export default function AboutUs({ setCurrentPage }) {
             overflow: 'hidden',
             boxShadow: 'var(--shadow-premium)',
             border: '1px solid var(--border-color)',
-            height: '520px'
+            height: 'clamp(320px, 45vw, 520px)'
           }}>
             <img 
               src="/prashant_garg.png" 
@@ -90,7 +90,7 @@ export default function AboutUs({ setCurrentPage }) {
         {/* Why We Exist: Mission & Vision */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: '3rem',
           marginBottom: '6rem'
         }}>
@@ -172,7 +172,7 @@ export default function AboutUs({ setCurrentPage }) {
           backgroundColor: 'var(--bg-secondary)',
           border: '1px solid var(--border-color)',
           borderRadius: '16px',
-          padding: '4rem',
+          padding: 'clamp(1.5rem, 5vw, 4rem)',
           marginBottom: '6rem',
           boxShadow: 'var(--shadow-premium)'
         }}>
@@ -254,7 +254,7 @@ export default function AboutUs({ setCurrentPage }) {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '3rem'
           }}>
             {/* Showroom */}

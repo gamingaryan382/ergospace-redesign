@@ -144,7 +144,6 @@ export default function Footer({ setCurrentPage, setSelectedCategory }) {
         {/* TWO-COLUMN CONTENT LAYOUT */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1.2fr 1.8fr',
           gap: '4rem',
           marginBottom: '5rem',
           alignItems: 'start'
@@ -153,12 +152,7 @@ export default function Footer({ setCurrentPage, setSelectedCategory }) {
           {/* LEFT COLUMN: Showroom Details & Branding */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             {/* Brand Logo */}
-            <div style={{ 
-              display: 'inline-flex', 
-              flexDirection: 'column', 
-              alignItems: 'flex-start', 
-              gap: '1px' 
-            }}>
+            <div className="logo-container" style={{ alignItems: 'flex-start' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <div style={{ 
                   display: 'flex', 
@@ -172,16 +166,7 @@ export default function Footer({ setCurrentPage, setSelectedCategory }) {
                   <span style={{ width: '9px', height: '1.5px', backgroundColor: '#E23744', borderRadius: '1px' }}></span>
                 </div>
                 
-                <span style={{ 
-                  fontFamily: 'var(--font-display)', 
-                  fontWeight: 700, 
-                  fontSize: '1.25rem', 
-                  letterSpacing: '0.01em', 
-                  color: '#E23744',
-                  lineHeight: '1',
-                  display: 'inline-flex',
-                  alignItems: 'center'
-                }}>
+                <span className="logo-text-wrap">
                   ERGO
                   <span style={{ color: '#1D1D1D', marginLeft: '2px' }}>
                     SPACE
@@ -196,16 +181,7 @@ export default function Footer({ setCurrentPage, setSelectedCategory }) {
                 </span>
               </div>
               
-              <span style={{ 
-                fontSize: '0.48rem', 
-                fontWeight: 600, 
-                letterSpacing: '0.24em', 
-                color: '#8A8A8A',
-                textTransform: 'uppercase',
-                marginTop: '-1px',
-                fontFamily: 'var(--font-sans)',
-                whiteSpace: 'nowrap'
-              }}>
+              <span className="logo-tagline" style={{ color: '#8A8A8A' }}>
                 PLEASURE AT WORK
               </span>
             </div>
@@ -467,7 +443,7 @@ export default function Footer({ setCurrentPage, setSelectedCategory }) {
                     style={{ width: '100%', padding: '0.75rem', border: '1px solid #E8E6E2', borderRadius: '4px', backgroundColor: '#FAF9F7', color: '#1D1D1D', outline: 'none' }}
                   />
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="responsive-two-column-grid" style={{ gap: '1rem' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#5E5E5E', marginBottom: '0.25rem', textTransform: 'uppercase' }}>Company Name *</label>
                     <input 

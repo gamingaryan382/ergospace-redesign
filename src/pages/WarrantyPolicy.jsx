@@ -10,7 +10,7 @@ export default function WarrantyPolicy() {
           <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.25em', textTransform: 'uppercase' }}>
             Customer Support
           </span>
-          <h1 className="editorial-title" style={{ fontSize: '3.5rem', marginTop: '0.5rem', marginBottom: '1.25rem' }}>
+          <h1 className="editorial-title" style={{ marginTop: '0.5rem', marginBottom: '1.25rem' }}>
             Warranty Policy
           </h1>
         </div>

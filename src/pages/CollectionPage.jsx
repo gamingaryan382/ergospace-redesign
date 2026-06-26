@@ -68,7 +68,7 @@ export default function CollectionPage({ setCurrentPage, setSelectedProductId })
           <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
             ErgoSpace Catalog
           </span>
-          <h1 className="editorial-title" style={{ fontSize: '3.5rem', marginTop: '0.5rem', marginBottom: '1rem' }}>
+          <h1 className="editorial-title" style={{ marginTop: '0.5rem', marginBottom: '1rem' }}>
             The Active Collection
           </h1>
           <p className="editorial-subtitle">
@@ -226,7 +226,7 @@ export default function CollectionPage({ setCurrentPage, setSelectedProductId })
         ) : (
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '3rem',
             marginBottom: '6rem'
           }}>
@@ -444,7 +444,7 @@ export default function CollectionPage({ setCurrentPage, setSelectedProductId })
             backgroundColor: 'var(--bg-primary)',
             borderRadius: '12px',
             border: '1px solid var(--border-color)',
-            padding: '3rem',
+            padding: 'clamp(1.25rem, 5vw, 3rem)',
             width: '100%',
             maxWidth: '850px',
             maxHeight: '90vh',
@@ -457,41 +457,43 @@ export default function CollectionPage({ setCurrentPage, setSelectedProductId })
               Product Comparison Matrix
             </h3>
 
-            {/* Table */}
-            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
-              <thead>
-                <tr style={{ borderBottom: '2px solid var(--border-color)' }}>
-                  <th style={{ padding: '1rem', width: '25%', color: 'var(--text-secondary)', fontWeight: 500 }}>Specs</th>
-                  {compareList.map((p) => (
-                    <th key={p.id} style={{ padding: '1rem', width: '25%', fontWeight: 600, fontFamily: 'var(--font-display)' }}>
-                      {p.name}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
-                  <td style={{ padding: '1rem', color: 'var(--text-secondary)', fontWeight: 500 }}>Price</td>
-                  {compareList.map((p) => (
-                    <td key={p.id} style={{ padding: '1rem', fontWeight: 600, color: 'var(--accent)' }}>
-                      ₹{p.price.toLocaleString('en-IN')}
-                    </td>
-                  ))}
-                </tr>
-                
-                {/* Dynamically extract specs and populate */}
-                {Object.keys(compareList[0]?.specs || {}).map((specKey) => (
-                  <tr key={specKey} style={{ borderBottom: '1px solid var(--border-color)' }}>
-                    <td style={{ padding: '1rem', color: 'var(--text-secondary)', fontWeight: 500 }}>{specKey}</td>
+            {/* Table Wrapper for horizontal scroll support */}
+            <div style={{ overflowX: 'auto', width: '100%', marginBottom: '1rem' }}>
+              <table style={{ minWidth: '600px', width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
+                <thead>
+                  <tr style={{ borderBottom: '2px solid var(--border-color)' }}>
+                    <th style={{ padding: '1rem', width: '25%', color: 'var(--text-secondary)', fontWeight: 500 }}>Specs</th>
                     {compareList.map((p) => (
-                      <td key={p.id} style={{ padding: '1rem', fontWeight: 300, fontSize: '0.85rem', color: 'var(--text-primary)' }}>
-                        {p.specs[specKey] || 'N/A'}
+                      <th key={p.id} style={{ padding: '1rem', width: '25%', fontWeight: 600, fontFamily: 'var(--font-display)' }}>
+                        {p.name}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                    <td style={{ padding: '1rem', color: 'var(--text-secondary)', fontWeight: 500 }}>Price</td>
+                    {compareList.map((p) => (
+                      <td key={p.id} style={{ padding: '1rem', fontWeight: 600, color: 'var(--accent)' }}>
+                        ₹{p.price.toLocaleString('en-IN')}
                       </td>
                     ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                  
+                  {/* Dynamically extract specs and populate */}
+                  {Object.keys(compareList[0]?.specs || {}).map((specKey) => (
+                    <tr key={specKey} style={{ borderBottom: '1px solid var(--border-color)' }}>
+                      <td style={{ padding: '1rem', color: 'var(--text-secondary)', fontWeight: 500 }}>{specKey}</td>
+                      {compareList.map((p) => (
+                        <td key={p.id} style={{ padding: '1rem', fontWeight: 300, fontSize: '0.85rem', color: 'var(--text-primary)' }}>
+                          {p.specs[specKey] || 'N/A'}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
             <button
               onClick={() => setShowComparisonModal(false)}
@@ -525,7 +527,7 @@ export default function CollectionPage({ setCurrentPage, setSelectedProductId })
             backgroundColor: 'var(--bg-primary)',
             borderRadius: '12px',
             border: '1px solid var(--border-color)',
-            padding: '3rem',
+            padding: 'clamp(1.25rem, 5vw, 3rem)',
             width: '100%',
             maxWidth: '750px',
             position: 'relative',

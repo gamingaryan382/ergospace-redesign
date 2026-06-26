@@ -76,7 +76,7 @@ export default function ProductPage({ productId, setCurrentPage }) {
       <section ref={heroRef} style={{ paddingTop: '1.5rem', paddingBottom: '4rem' }}>
         <div className="container-premium" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: '4rem',
           alignItems: 'start'
         }}>
@@ -86,7 +86,7 @@ export default function ProductPage({ productId, setCurrentPage }) {
             {/* Main Stage Display */}
             <div style={{
               width: '100%',
-              height: '480px',
+              height: 'clamp(280px, 50vw, 480px)',
               backgroundColor: 'var(--bg-secondary)',
               borderRadius: '8px',
               border: '1px solid var(--border-color)',
@@ -224,7 +224,7 @@ export default function ProductPage({ productId, setCurrentPage }) {
             <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
               ErgoSpace Premium
             </span>
-            <h1 style={{ fontSize: '3rem', fontFamily: 'var(--font-display)', fontWeight: 600, margin: '0.5rem 0 1rem 0', lineHeight: 1.1 }}>
+            <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)', fontFamily: 'var(--font-display)', fontWeight: 600, margin: '0.5rem 0 1rem 0', lineHeight: 1.1 }}>
               {product.name}
             </h1>
 
@@ -384,9 +384,10 @@ export default function ProductPage({ productId, setCurrentPage }) {
             <p className="editorial-subtitle" style={{ margin: '0 auto' }}>Explore how ErgoSpace structural choices compare to generic department chairs.</p>
           </div>
 
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem', backgroundColor: 'white', borderRadius: '8px', overflow: 'hidden', boxShadow: 'var(--shadow-subtle)' }}>
-            <thead>
-              <tr style={{ backgroundColor: 'var(--bg-dark)', color: 'white' }}>
+          <div style={{ overflowX: 'auto', width: '100%', marginBottom: '1rem' }}>
+            <table style={{ minWidth: '600px', width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem', backgroundColor: 'white', borderRadius: '8px', overflow: 'hidden', boxShadow: 'var(--shadow-subtle)' }}>
+              <thead>
+                <tr style={{ backgroundColor: 'var(--bg-dark)', color: 'white' }}>
                 <th style={{ padding: '1.25rem', textAlign: 'left', fontWeight: 600 }}>Features</th>
                 <th style={{ padding: '1.25rem', textAlign: 'left', fontWeight: 600, color: 'var(--accent-light)' }}>ErgoSpace Calibrations</th>
                 <th style={{ padding: '1.25rem', textAlign: 'left', fontWeight: 600, opacity: 0.6 }}>Standard Office Chairs</th>
@@ -415,6 +416,7 @@ export default function ProductPage({ productId, setCurrentPage }) {
               </tr>
             </tbody>
           </table>
+          </div>
         </div>
       </section>
 
@@ -430,7 +432,7 @@ export default function ProductPage({ productId, setCurrentPage }) {
             </h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '4rem' }}>
             <div>
               <div style={{ height: '300px', borderRadius: '8px', overflow: 'hidden', marginBottom: '1.5rem' }}>
                 <img src="https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?auto=format&fit=crop&w=600&q=80" alt="Mesh" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -467,13 +469,13 @@ export default function ProductPage({ productId, setCurrentPage }) {
               </h2>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '3rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem' }}>
               {productSetups.map((setup) => (
                 <div 
                   key={setup.id}
                   style={{ backgroundColor: 'var(--bg-primary)', borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--border-color)' }}
                 >
-                  <img src={setup.image} alt={setup.title} style={{ width: '100%', height: '240px', objectFit: 'cover' }} />
+                  <img src={setup.image} alt={setup.title} style={{ width: '100%', height: 'clamp(180px, 30vw, 240px)', objectFit: 'cover' }} />
                   <div style={{ padding: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
                       <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 600 }}>{setup.title}</h4>
@@ -498,7 +500,7 @@ export default function ProductPage({ productId, setCurrentPage }) {
             <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Add matching components configured for this posture model.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
             {relatedProducts.map((p) => (
               <div 
                 key={p.id}
@@ -509,7 +511,7 @@ export default function ProductPage({ productId, setCurrentPage }) {
                 }}
                 style={{ backgroundColor: 'var(--bg-secondary)', borderRadius: '6px', border: '1px solid var(--border-color)', padding: '1.5rem', cursor: 'pointer' }}
               >
-                <img src={p.image} alt={p.name} style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '4px', marginBottom: '1rem' }} />
+                <img src={p.image} alt={p.name} style={{ width: '100%', height: 'clamp(150px, 25vw, 200px)', objectFit: 'cover', borderRadius: '4px', marginBottom: '1rem' }} />
                 <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', fontWeight: 600 }}>{p.name}</h4>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem' }}>
                   <span style={{ fontWeight: 600, color: 'var(--accent)' }}>₹{p.price.toLocaleString('en-IN')}</span>
@@ -607,7 +609,7 @@ export default function ProductPage({ productId, setCurrentPage }) {
             backgroundColor: 'var(--bg-primary)',
             borderRadius: '12px',
             border: '1px solid var(--border-color)',
-            padding: '3rem',
+            padding: 'clamp(1.25rem, 5vw, 3rem)',
             width: '100%',
             maxWidth: '550px',
             position: 'relative',
@@ -676,7 +678,7 @@ export default function ProductPage({ productId, setCurrentPage }) {
                     style={{ width: '100%', padding: '0.75rem', border: '1px solid var(--border-color)', borderRadius: '4px', backgroundColor: 'var(--bg-secondary)', color: 'var(--text-primary)', outline: 'none' }}
                   />
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="responsive-two-column-grid" style={{ gap: '1rem' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.25rem', textTransform: 'uppercase' }}>Company Name *</label>
                     <input 

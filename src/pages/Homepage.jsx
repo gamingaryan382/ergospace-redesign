@@ -284,7 +284,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
           
           <h1 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: '4.75rem',
+            fontSize: 'clamp(2.25rem, 8vw, 4.75rem)',
             fontWeight: 800,
             lineHeight: 1.1,
             letterSpacing: '-0.03em',
@@ -295,7 +295,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
           </h1>
 
           <p style={{
-            fontSize: '1.3rem',
+            fontSize: 'clamp(1.05rem, 2.5vw, 1.3rem)',
             fontWeight: 400,
             color: '#4A4A4A',
             maxWidth: '680px',
@@ -305,12 +305,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
             Designing ergonomic workspaces that improve comfort, productivity, and organizational performance. Trusted by India's industry leaders.
           </p>
 
-          <div style={{
-            display: 'flex',
-            gap: '2.5rem',
-            flexWrap: 'wrap',
-            justifyContent: 'center'
-          }}>
+          <div className="hero-buttons-container">
             <button 
               onClick={() => { if (setSelectedCategory) setSelectedCategory('All'); setCurrentPage('collection'); }} 
               className="btn-primary"
@@ -420,7 +415,6 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
               {[...clientLogosList, ...clientLogosList, ...clientLogosList, ...clientLogosList].map((client, idx) => (
                 <div
                   key={idx}
-                  onClick={() => setActiveCaseStudyId(client.id)}
                   style={{
                     background: 'rgba(255, 255, 255, 0.03)',
                     backdropFilter: 'blur(12px)',
@@ -428,7 +422,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
                     border: '1px solid rgba(255, 255, 255, 0.08)',
                     padding: '1.25rem 3.5rem',
                     borderRadius: '16px',
-                    cursor: 'pointer',
+                    cursor: 'default',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -469,16 +463,6 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
           .logo-marquee-container:hover .logo-ticker-row {
             animation-play-state: paused;
           }
-          .angled-logo-card:hover {
-            border: 1px solid var(--accent) !important;
-            background: rgba(181, 142, 88, 0.08) !important;
-            transform: skewX(-12deg) translateY(-6px) !important;
-            box-shadow: 0 10px 40px rgba(181, 142, 88, 0.15) !important;
-          }
-          .angled-logo-card:hover span {
-            color: var(--accent) !important;
-            opacity: 1 !important;
-          }
         `}</style>
       </section>
 
@@ -511,7 +495,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
           </span>
           <h2 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: '3.5rem',
+            fontSize: 'clamp(2rem, 6vw, 3.5rem)',
             fontWeight: 600,
             lineHeight: 1.15,
             letterSpacing: '-0.02em',
@@ -521,7 +505,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
             Building Better Workspaces <br />Since Day One
           </h2>
           <p style={{
-            fontSize: '1.45rem',
+            fontSize: 'clamp(1.1rem, 3vw, 1.45rem)',
             fontWeight: 300,
             color: 'var(--text-secondary)',
             lineHeight: 1.8,
@@ -541,7 +525,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
               <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
                 Updates & Insights
               </span>
-              <h2 className="editorial-title" style={{ fontSize: '3rem', marginTop: '0.5rem', marginBottom: 0 }}>
+              <h2 className="editorial-title" style={{ marginTop: '0.5rem', marginBottom: 0 }}>
                 Latest from Ergo Space
               </h2>
             </div>
@@ -558,7 +542,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '3rem'
           }}>
             {LATEST_ARTICLES.slice(0, 3).map((art) => (
@@ -661,7 +645,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
             <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
               Product Catalogue
             </span>
-            <h2 className="editorial-title" style={{ fontSize: '3rem', marginTop: '0.5rem', marginBottom: 0 }}>
+            <h2 className="editorial-title" style={{ marginTop: '0.5rem', marginBottom: 0 }}>
               The ErgoSpace Systems
             </h2>
           </div>
@@ -727,7 +711,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
         <div className="container-premium">
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '4rem',
             alignItems: 'center'
           }}>
@@ -735,20 +719,14 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
               <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
                 Postural Re-Calibration
               </span>
-              <h2 className="editorial-title" style={{ fontSize: '3rem', marginTop: '1rem', lineHeight: '1.1' }}>
+              <h2 className="editorial-title" style={{ marginTop: '1rem', lineHeight: '1.1' }}>
                 Workspace transformation
               </h2>
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', fontWeight: 300, lineHeight: '1.7', marginBottom: '2rem' }}>
                 Drag the center handle horizontally to compare a traditional cluttered, uncalibrated environment with an optimized, clean ErgoSpace setup.
               </p>
               
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '1.5rem',
-                borderTop: '1px solid var(--border-color)',
-                paddingTop: '2rem'
-              }}>
+              <div className="responsive-two-column-grid" style={{ borderTop: '1px solid var(--border-color)', paddingTop: '2rem' }}>
                 <div>
                   <div style={{ fontSize: '1.75rem', fontWeight: 600, color: 'var(--accent)' }}>60% Less</div>
                   <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Cable clutter visible</div>
@@ -854,7 +832,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
               <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
                 Corporate Portfolio
               </span>
-              <h2 className="editorial-title" style={{ fontSize: '3rem', marginTop: '0.5rem', marginBottom: 0 }}>
+              <h2 className="editorial-title" style={{ marginTop: '0.5rem', marginBottom: 0 }}>
                 Spaces We've Built
               </h2>
             </div>
@@ -866,7 +844,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '3rem'
           }}>
             {PORTFOLIO_PROJECTS.slice(0, 6).map((proj) => (
@@ -941,7 +919,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
           <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
             Social Proof
           </span>
-          <h2 className="editorial-title" style={{ fontSize: '3rem', marginTop: '0.5rem', marginBottom: 0 }}>
+          <h2 className="editorial-title" style={{ marginTop: '0.5rem', marginBottom: 0 }}>
             The Review Ticker
           </h2>
         </div>
@@ -1009,13 +987,13 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
       {/* SECTION 8 — ABOUT US & OUR FOUNDER PREVIEW */}
       <section className="section-padding" style={{ backgroundColor: 'var(--bg-primary)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
         <div className="container-premium">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '4rem', alignItems: 'center' }}>
             {/* Story Text */}
             <div>
               <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
                 Our Heritage
               </span>
-              <h2 className="editorial-title" style={{ fontSize: '3rem', marginTop: '0.5rem', marginBottom: '1.5rem', lineHeight: '1.1' }}>
+              <h2 className="editorial-title" style={{ fontSize: 'clamp(2rem, 5.5vw, 3rem)', marginTop: '0.5rem', marginBottom: '1.5rem', lineHeight: '1.1' }}>
                 About Us & Our Founder
               </h2>
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', fontWeight: 300, lineHeight: '1.7', marginBottom: '2rem' }}>
@@ -1103,9 +1081,9 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
             backgroundColor: 'var(--bg-alternate)',
             borderRadius: '16px',
             border: '1px solid var(--border-color)',
-            padding: '5rem 4rem',
+            padding: 'clamp(2rem, 5vw, 5rem) clamp(1.25rem, 5vw, 4rem)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '4rem',
             alignItems: 'center',
             boxShadow: 'var(--shadow-premium)'
@@ -1114,7 +1092,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
               <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
                 ErgoSpace B2B
               </span>
-              <h2 className="editorial-title" style={{ fontSize: '3rem', marginTop: '1rem', lineHeight: '1.1' }}>
+              <h2 className="editorial-title" style={{ marginTop: '1rem', lineHeight: '1.1' }}>
                 Corporate Solutions
               </h2>
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', fontWeight: 300, lineHeight: '1.7', marginBottom: '2rem' }}>
@@ -1129,7 +1107,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
               </button>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+            <div className="responsive-two-column-grid">
               <img 
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80" 
                 alt="Corporate Office" 
@@ -1138,7 +1116,8 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
               <img 
                 src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=400&q=80" 
                 alt="Corporate Office 2" 
-                style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: '6px', transform: 'translateY(1.5rem)' }}
+                className="offset-image"
+                style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: '6px' }}
               />
             </div>
           </div>
@@ -1165,7 +1144,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
               backgroundColor: 'var(--bg-primary)',
               borderRadius: '12px',
               border: '1px solid var(--border-color)',
-              padding: '3rem',
+              padding: 'clamp(1.25rem, 5vw, 3rem)',
               width: '100%',
               maxWidth: '520px',
               position: 'relative',
@@ -1181,7 +1160,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
 
               {b2bSubmitted ? (
                 <div style={{ padding: '2rem 0', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-                  <div style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: 'rgba(181, 142, 88, 0.15)', color: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContext: 'center' }}>
+                  <div style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: 'rgba(181, 142, 88, 0.15)', color: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Check size={28} />
                   </div>
                   <h4 style={{ fontSize: '1.2rem', fontWeight: 600 }}>Consultation Scheduled</h4>
@@ -1189,7 +1168,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
                 </div>
               ) : (
                 <form onSubmit={handleB2BSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                  <div style={{ display: 'flex', gap: '1rem' }}>
+                  <div className="responsive-two-column-grid" style={{ gap: '1rem' }}>
                     <div style={{ flex: 1 }}>
                       <label style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', color: 'var(--text-secondary)', display: 'block', marginBottom: '0.5rem' }}>Your Name</label>
                       <input 

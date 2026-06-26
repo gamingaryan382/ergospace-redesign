@@ -176,7 +176,7 @@ function AppContent() {
             backgroundColor: 'var(--bg-primary)',
             borderRadius: '12px',
             border: '1px solid var(--border-color)',
-            padding: '3rem',
+            padding: 'clamp(1.25rem, 5vw, 3rem)',
             width: '100%',
             maxWidth: '680px',
             position: 'relative',
@@ -197,7 +197,7 @@ function AppContent() {
               <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
                 B2B Project Case Study
               </span>
-              <h3 style={{ fontSize: '2rem', fontFamily: 'var(--font-display)', fontWeight: 600, marginTop: '0.25rem' }}>
+              <h3 style={{ fontSize: '2.5rem', fontFamily: 'var(--font-display)', fontWeight: 600, marginTop: '0.25rem' }}>
                 {activeCaseStudy.name} HQ Deployment
               </h3>
             </div>
@@ -211,10 +211,7 @@ function AppContent() {
               <img src={activeCaseStudy.image} alt={activeCaseStudy.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '1.5rem',
+            <div className="responsive-two-column-grid" style={{
               fontSize: '0.85rem',
               borderBottom: '1px solid var(--border-color)',
               paddingBottom: '1.25rem'

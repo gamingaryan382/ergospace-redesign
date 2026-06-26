@@ -53,7 +53,7 @@ export default function WorkspaceBuilder() {
           <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
             ErgoSpace Customizer
           </span>
-          <h1 className="editorial-title" style={{ fontSize: '3.5rem', marginTop: '0.5rem' }}>
+          <h1 className="editorial-title" style={{ marginTop: '0.5rem' }}>
             Workspace Setup Builder
           </h1>
           <p className="editorial-subtitle" style={{ margin: '0 auto' }}>
@@ -64,7 +64,7 @@ export default function WorkspaceBuilder() {
         {/* Builder Interface */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: '4rem',
           alignItems: 'start'
         }}>
@@ -461,7 +461,7 @@ export default function WorkspaceBuilder() {
             backgroundColor: 'var(--bg-primary)',
             borderRadius: '12px',
             border: '1px solid var(--border-color)',
-            padding: '3rem',
+            padding: 'clamp(1.25rem, 5vw, 3rem)',
             width: '100%',
             maxWidth: '550px',
             position: 'relative',
@@ -530,7 +530,7 @@ export default function WorkspaceBuilder() {
                     style={{ width: '100%', padding: '0.75rem', border: '1px solid var(--border-color)', borderRadius: '4px', backgroundColor: 'var(--bg-secondary)', color: 'var(--text-primary)', outline: 'none' }}
                   />
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="responsive-two-column-grid" style={{ gap: '1rem' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.25rem', textTransform: 'uppercase' }}>Company Name *</label>
                     <input 

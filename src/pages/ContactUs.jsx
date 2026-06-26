@@ -23,7 +23,7 @@ export default function ContactUs() {
           <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.25em', textTransform: 'uppercase' }}>
             Get In Touch
           </span>
-          <h1 className="editorial-title" style={{ fontSize: '3.75rem', marginTop: '0.5rem', marginBottom: '1.25rem' }}>
+          <h1 className="editorial-title" style={{ marginTop: '0.5rem', marginBottom: '1.25rem' }}>
             Contact Us
           </h1>
           <p className="editorial-subtitle" style={{ margin: '0 auto', maxWidth: '650px' }}>
@@ -33,7 +33,7 @@ export default function ContactUs() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: '4rem',
           alignItems: 'start'
         }}>
@@ -42,7 +42,7 @@ export default function ContactUs() {
             backgroundColor: 'var(--bg-secondary)',
             borderRadius: '12px',
             border: '1px solid var(--border-color)',
-            padding: '3rem',
+            padding: 'clamp(1.25rem, 5vw, 3rem)',
             boxShadow: 'var(--shadow-subtle)',
             display: 'flex',
             flexDirection: 'column',
@@ -98,7 +98,7 @@ export default function ContactUs() {
             backgroundColor: 'var(--bg-tertiary)',
             borderRadius: '12px',
             border: '1px solid var(--border-color)',
-            padding: '3rem',
+            padding: 'clamp(1.25rem, 5vw, 3rem)',
             boxShadow: 'var(--shadow-premium)'
           }}>
             {submitted ? (
@@ -147,7 +147,7 @@ export default function ContactUs() {
                   />
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                <div className="responsive-two-column-grid">
                   <div>
                     <label style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', color: 'var(--text-secondary)', display: 'block', marginBottom: '0.5rem' }}>Email Address *</label>
                     <input

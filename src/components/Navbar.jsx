@@ -50,15 +50,7 @@ export default function Navbar({ currentPage, setCurrentPage, setSelectedCategor
           {/* Brand Logo */}
           <div 
             onClick={() => { setCurrentPage('home'); setIsMobileMenuOpen(false); }}
-            style={{ 
-              cursor: 'pointer', 
-              display: 'flex', 
-              flexDirection: 'column', 
-              alignItems: 'center', 
-              gap: '1px',
-              padding: '0.25rem 0',
-              userSelect: 'none'
-            }}
+            className="logo-container"
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               {/* Left Bars - Resized to match height of the letter "E" in ERGO */}
@@ -75,16 +67,7 @@ export default function Navbar({ currentPage, setCurrentPage, setSelectedCategor
               </div>
               
               {/* Text Logo */}
-              <span style={{ 
-                fontFamily: 'var(--font-display)', 
-                fontWeight: 700, 
-                fontSize: '1.25rem', 
-                letterSpacing: '0.01em', 
-                color: '#E23744',
-                lineHeight: '1',
-                display: 'inline-flex',
-                alignItems: 'center'
-              }}>
+              <span className="logo-text-wrap">
                 ERGO
                 <span style={{ color: '#111111', marginLeft: '2px' }}>
                   SPACE
@@ -100,16 +83,7 @@ export default function Navbar({ currentPage, setCurrentPage, setSelectedCategor
             </div>
             
             {/* Tagline */}
-            <span style={{ 
-              fontSize: '0.46rem', 
-              fontWeight: 600, 
-              letterSpacing: '0.24em', 
-              color: '#555555',
-              textTransform: 'uppercase',
-              marginTop: '1px',
-              fontFamily: 'var(--font-sans)',
-              whiteSpace: 'nowrap'
-            }}>
+            <span className="logo-tagline">
               PLEASURE AT WORK
             </span>
           </div>

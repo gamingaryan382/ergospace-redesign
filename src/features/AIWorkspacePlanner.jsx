@@ -138,7 +138,7 @@ export default function AIWorkspacePlanner() {
             backgroundColor: 'var(--bg-secondary)',
             borderRadius: '12px',
             border: '1px solid var(--border-color)',
-            padding: '4rem 3rem',
+            padding: 'clamp(1.5rem, 5vw, 4rem) clamp(1.25rem, 5vw, 3rem)',
             boxShadow: 'var(--shadow-premium)',
             textAlign: 'center'
           }}>
@@ -165,7 +165,7 @@ export default function AIWorkspacePlanner() {
                 gap: '1.5rem',
                 boxShadow: 'var(--shadow-subtle)'
               }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '50%', backgroundColor: 'rgba(181,142,88,0.1)', color: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContext: 'center', flexShrink: 0 }}>
+                <div style={{ width: '44px', height: '44px', borderRadius: '50%', backgroundColor: 'rgba(181,142,88,0.1)', color: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <Upload size={20} style={{ margin: 'auto' }} />
                 </div>
                 <div>
@@ -189,7 +189,7 @@ export default function AIWorkspacePlanner() {
                 gap: '1.5rem',
                 boxShadow: 'var(--shadow-subtle)'
               }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '50%', backgroundColor: 'rgba(17,17,17,0.05)', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', justifyContext: 'center', flexShrink: 0 }}>
+                <div style={{ width: '44px', height: '44px', borderRadius: '50%', backgroundColor: 'rgba(17,17,17,0.05)', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <Layout size={20} style={{ margin: 'auto' }} />
                 </div>
                 <div>
@@ -210,7 +210,7 @@ export default function AIWorkspacePlanner() {
             backgroundColor: 'var(--bg-secondary)',
             borderRadius: '12px',
             border: '1px solid var(--border-color)',
-            padding: '4rem 3rem',
+            padding: 'clamp(1.5rem, 5vw, 4rem) clamp(1.25rem, 5vw, 3rem)',
             boxShadow: 'var(--shadow-premium)'
           }}>
             {/* Step indicators */}
@@ -404,7 +404,7 @@ export default function AIWorkspacePlanner() {
             backgroundColor: 'var(--bg-secondary)',
             borderRadius: '12px',
             border: '1px solid var(--border-color)',
-            padding: '4rem 3rem',
+            padding: 'clamp(1.5rem, 5vw, 4rem) clamp(1.25rem, 5vw, 3rem)',
             boxShadow: 'var(--shadow-premium)',
             textAlign: isProcessing ? 'center' : 'left'
           }}>
@@ -516,7 +516,7 @@ export default function AIWorkspacePlanner() {
             backgroundColor: 'var(--bg-primary)',
             borderRadius: '12px',
             border: '1px solid var(--border-color)',
-            padding: '3rem',
+            padding: 'clamp(1.25rem, 5vw, 3rem)',
             width: '100%',
             maxWidth: '550px',
             position: 'relative',
