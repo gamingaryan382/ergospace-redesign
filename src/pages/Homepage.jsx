@@ -107,70 +107,31 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
   const clientLogosList = [
     {
       id: 'razorpay',
-      name: 'Razorpay',
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19.5 3H11.5L4.5 15H11.5L9.5 21L19.5 3Z" fill="#0052FF" stroke="#0052FF" strokeWidth="1.5" strokeLinejoin="round" />
-        </svg>
-      )
+      name: 'Razorpay'
     },
     {
       id: 'zomato',
-      name: 'Zomato',
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#E23744" />
-        </svg>
-      )
+      name: 'Zomato'
     },
     {
       id: 'groww',
-      name: 'Groww',
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 18h3.5V8H4v10zm6 0h3.5V4h-3.5v14zm6 0h3.5v-7H16v7z" fill="#00D09C" />
-        </svg>
-      )
+      name: 'Groww'
     },
     {
       id: 'razorpay',
-      name: 'CRED',
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      )
+      name: 'CRED'
     },
     {
       id: 'zomato',
-      name: 'Swiggy',
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#FC8019" />
-          <path d="M12 8V12L14 14" stroke="white" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      )
+      name: 'Swiggy'
     },
     {
       id: 'groww',
-      name: 'Paytm',
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" fill="#00BAF2" />
-          <path d="M8 12h8" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-          <path d="M12 8v8" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-        </svg>
-      )
+      name: 'Paytm'
     },
     {
       id: 'razorpay',
-      name: 'Flipkart',
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4H6z" fill="#2874F0" />
-          <path d="M3 6h18M16 10a4 4 0 0 1-8 0" stroke="white" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      )
+      name: 'Flipkart'
     }
   ];
 
@@ -219,7 +180,10 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
           height: '100%',
           display: 'flex',
           zIndex: 1,
-          animation: 'loopMarquee 80s linear infinite'
+          animation: 'loopMarquee 30s linear infinite',
+          transform: 'translate3d(0, 0, 0)',
+          willChange: 'transform',
+          backfaceVisibility: 'hidden'
         }}>
           {scrollGallery.map((imgUrl, idx) => (
             <div 
@@ -238,8 +202,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
                 style={{ 
                   width: '100%', 
                   height: '100%', 
-                  objectFit: 'cover',
-                  filter: 'contrast(92%) saturate(90%)' // Crisp quality
+                  objectFit: 'cover'
                 }} 
               />
             </div>
@@ -410,16 +373,17 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
               display: 'flex',
               gap: '2.5rem',
               width: 'max-content',
-              animation: 'marqueeLogo 55s linear infinite'
+              animation: 'marqueeLogo 20s linear infinite',
+              transform: 'translate3d(0, 0, 0)',
+              willChange: 'transform',
+              backfaceVisibility: 'hidden'
             }} className="logo-ticker-row">
               {[...clientLogosList, ...clientLogosList, ...clientLogosList, ...clientLogosList].map((client, idx) => (
                 <div
                   key={idx}
                   style={{
-                    background: 'rgba(255, 255, 255, 0.03)',
-                    backdropFilter: 'blur(12px)',
-                    WebkitBackdropFilter: 'blur(12px)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: 'var(--bg-tertiary)',
+                    border: '1px solid var(--border-color)',
                     padding: '1.25rem 3.5rem',
                     borderRadius: '16px',
                     cursor: 'default',
@@ -428,7 +392,7 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
                     justifyContent: 'center',
                     transform: 'skewX(-12deg)',
                     transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                    boxShadow: '0 4px 30px rgba(0,0,0,0.1)',
+                    boxShadow: '0 4px 30px rgba(0,0,0,0.02)',
                     minWidth: '220px'
                   }}
                   className="angled-logo-card"
@@ -437,11 +401,9 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
                     transform: 'skewX(12deg)',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '1rem',
                     width: '100%',
                     justifyContent: 'center'
                   }}>
-                    {client.icon}
                     <span style={{
                       fontFamily: 'var(--font-display)',
                       fontSize: '1.45rem',
@@ -930,7 +892,10 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
             display: 'flex',
             gap: '2.5rem',
             width: 'max-content',
-            animation: 'marqueeReviews 120s linear infinite'
+            animation: 'marqueeReviews 35s linear infinite',
+            transform: 'translate3d(0, 0, 0)',
+            willChange: 'transform',
+            backfaceVisibility: 'hidden'
           }} className="reviews-ticker-row">
             {[...VISUAL_REVIEWS, ...VISUAL_REVIEWS].map((rev, idx) => (
               <div 
@@ -978,8 +943,8 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
             animation-play-state: paused;
           }
           @keyframes marqueeReviews {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
           }
         `}</style>
       </section>
@@ -1231,12 +1196,12 @@ export default function Homepage({ setCurrentPage, setSelectedProductId, setActi
 
       <style>{`
         @keyframes loopMarquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
         }
         @keyframes marqueeLogo {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
         }
         @keyframes scrollBarAnim {
           0% { transform: translateY(-100%); }
