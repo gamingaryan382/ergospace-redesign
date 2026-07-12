@@ -347,9 +347,9 @@ export default function AIWorkspacePlanner() {
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   {[
-                    { label: 'Essential Workspaces (Standard comfort core: up to ₹50k)', val: 'budget' },
-                    { label: 'Premium Ergonomic Upgrades (Whisper desks & mesh: ₹50k - ₹1.5L)', val: 'premium' },
-                    { label: 'Executive Boardroom / Enterprise Solutions (Hardwood teak: ₹1.5L+)', val: 'enterprise' }
+                    { label: 'Essential Workspaces (Standard comfort core systems)', val: 'budget' },
+                    { label: 'Premium Ergonomic Upgrades (Whisper desks & high-tension mesh)', val: 'premium' },
+                    { label: 'Executive Boardroom / Enterprise Solutions (Signature hardwood wood & aluminum)', val: 'enterprise' }
                   ].map(opt => (
                     <button
                       key={opt.val}
@@ -443,28 +443,21 @@ export default function AIWorkspacePlanner() {
                 }}>
                   <h4 style={{ fontSize: '0.9rem', fontWeight: 600, marginBottom: '1.25rem' }}>Recommended Workspace Package</h4>
                   
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.85rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem', marginBottom: '1.25rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <span>Desk: {plannerResult.desk.name}</span>
-                      <span style={{ fontWeight: 600 }}>₹{plannerResult.desk.price.toLocaleString('en-IN')}</span>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.85rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Desk Component</span>
+                      <span style={{ color: 'var(--text-secondary)' }}>{plannerResult.desk.name}</span>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <span>Seat: {plannerResult.chair.name} (x{questAnswers.users})</span>
-                      <span style={{ fontWeight: 600 }}>₹{(plannerResult.chair.price * questAnswers.users).toLocaleString('en-IN')}</span>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Seating Component</span>
+                      <span style={{ color: 'var(--text-secondary)' }}>{plannerResult.chair.name} (x{questAnswers.users})</span>
                     </div>
                     {plannerResult.accessories.map((acc, idx) => (
-                      <div key={idx} style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <span>Accessory: {acc.name}</span>
-                        <span style={{ fontWeight: 600 }}>₹{acc.price.toLocaleString('en-IN')}</span>
+                      <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Accessory Component</span>
+                        <span style={{ color: 'var(--text-secondary)' }}>{acc.name}</span>
                       </div>
                     ))}
-                  </div>
-
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                    <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Estimated Investment (10% Bundle Discount)</span>
-                    <span style={{ fontSize: '1.35rem', fontWeight: 600, color: 'var(--accent)', fontFamily: 'var(--font-display)' }}>
-                      ₹{Math.round(plannerResult.budget * 0.9).toLocaleString('en-IN')}
-                    </span>
                   </div>
                 </div>
 

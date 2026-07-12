@@ -4,8 +4,8 @@ import Footer from './components/Footer';
 import Homepage from './pages/Homepage';
 import CollectionPage from './pages/CollectionPage';
 import ProductPage from './pages/ProductPage';
-import WorkspaceBuilder from './features/WorkspaceBuilder';
-import WorkspaceSolutions from './pages/WorkspaceSolutions';
+import SpacesPage from './pages/SpacesPage';
+import ExperienceCentrePage from './pages/ExperienceCentrePage';
 import AIWorkspacePlanner from './features/AIWorkspacePlanner';
 import AboutUs from './pages/AboutUs';
 import Latest from './pages/Latest';
@@ -23,6 +23,7 @@ import { B2B_CLIENTS } from './data/products';
 function AppContent() {
   const [currentPage, setCurrentPage] = useState('home'); // 'home' | 'collection' | 'product' | 'builder' | 'solutions' | 'planner'
   const [selectedProductId, setSelectedProductId] = useState('astra-chair');
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   // Scroll to top on page transition (micro-timer ensures reliability across layouts)
   React.useEffect(() => {
@@ -32,7 +33,48 @@ function AppContent() {
     }, 50);
     return () => clearTimeout(timer);
   }, [currentPage]);
-  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  // Sync state with URL path on mount
+  React.useEffect(() => {
+    const path = window.location.pathname;
+    const parts = path.split('/');
+    if (parts.length >= 4 && parts[1] === 'collection') {
+      const id = parts[parts.length - 1];
+      setCurrentPage('product');
+      setSelectedProductId(id);
+    } else if (path === '/collection') {
+      setCurrentPage('collection');
+    }
+  }, []);
+
+  // Listen to popstate (back/forward browser buttons)
+  React.useEffect(() => {
+    const handlePopState = (e) => {
+      const path = window.location.pathname;
+      const parts = path.split('/');
+      if (parts.length >= 4 && parts[1] === 'collection') {
+        const id = parts[parts.length - 1];
+        setCurrentPage('product');
+        setSelectedProductId(id);
+      } else if (path === '/collection') {
+        setCurrentPage('collection');
+      } else {
+        setCurrentPage('home');
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Listen to global custom navigation events
+  React.useEffect(() => {
+    const handleNavToChair = (e) => {
+      setSelectedProductId(e.detail);
+      setCurrentPage('product');
+    };
+    window.addEventListener('nav-to-chair', handleNavToChair);
+    return () => window.removeEventListener('nav-to-chair', handleNavToChair);
+  }, []);
 
   // B2B Case Study Modal State (Shared globally)
   const [activeCaseStudyId, setActiveCaseStudyId] = useState(null);
@@ -67,9 +109,11 @@ function AppContent() {
           />
         );
       case 'builder':
-        return <WorkspaceBuilder />;
+      case 'spaces':
+        return <SpacesPage setCurrentPage={setCurrentPage} />;
       case 'solutions':
-        return <WorkspaceSolutions />;
+      case 'experience':
+        return <ExperienceCentrePage />;
       case 'planner':
         return <AIWorkspacePlanner />;
       case 'about':

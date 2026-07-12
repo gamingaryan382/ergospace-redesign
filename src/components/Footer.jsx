@@ -152,38 +152,24 @@ export default function Footer({ setCurrentPage, setSelectedCategory }) {
           {/* LEFT COLUMN: Showroom Details & Branding */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             {/* Brand Logo */}
-            <div className="logo-container" style={{ alignItems: 'flex-start' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <div style={{ 
-                  display: 'flex', 
-                  flexDirection: 'column', 
-                  gap: '2px', 
-                  justifyContent: 'center', 
-                  height: '14px' 
-                }}>
-                  <span style={{ width: '9px', height: '1.5px', backgroundColor: '#E23744', borderRadius: '1px' }}></span>
-                  <span style={{ width: '9px', height: '1.5px', backgroundColor: '#E23744', borderRadius: '1px' }}></span>
-                  <span style={{ width: '9px', height: '1.5px', backgroundColor: '#E23744', borderRadius: '1px' }}></span>
-                </div>
-                
-                <span className="logo-text-wrap">
-                  ERGO
-                  <span style={{ color: '#1D1D1D', marginLeft: '2px' }}>
-                    SPACE
-                  </span>
-                  <span style={{ 
-                    fontSize: '0.5rem', 
-                    fontWeight: 400, 
-                    verticalAlign: 'super', 
-                    marginLeft: '2px',
-                    color: '#1D1D1D'
-                  }}>®</span>
-                </span>
-              </div>
-              
-              <span className="logo-tagline" style={{ color: '#8A8A8A' }}>
-                PLEASURE AT WORK
-              </span>
+            <div 
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                cursor: 'pointer',
+                userSelect: 'none'
+              }}
+            >
+              <img 
+                src="/logo.jpg" 
+                alt="ErgoSpace Logo" 
+                style={{ 
+                  height: '36px', 
+                  width: 'auto', 
+                  objectFit: 'contain', 
+                  mixBlendMode: 'multiply' 
+                }} 
+              />
             </div>
 
             <p style={{
@@ -290,14 +276,13 @@ export default function Footer({ setCurrentPage, setSelectedCategory }) {
                 marginBottom: '1.5rem', 
                 color: 'var(--accent)' 
               }}>
-                Workspace Solutions
+                Brand Experience
               </h5>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.85rem', color: '#5E5E5E' }}>
-                <li><button onClick={() => { setCurrentPage('solutions'); }} style={{ background: 'none', cursor: 'pointer', color: 'inherit', textAlign: 'left', border: 'none', padding: 0 }}>Corporate Workspaces</button></li>
-                <li><button onClick={() => { setCurrentPage('solutions'); }} style={{ background: 'none', cursor: 'pointer', color: 'inherit', textAlign: 'left', border: 'none', padding: 0 }}>Startup Offices</button></li>
-                <li><button onClick={() => { setCurrentPage('solutions'); }} style={{ background: 'none', cursor: 'pointer', color: 'inherit', textAlign: 'left', border: 'none', padding: 0 }}>Executive Cabins</button></li>
+                <li><button onClick={() => { setCurrentPage('spaces'); }} style={{ background: 'none', cursor: 'pointer', color: 'inherit', textAlign: 'left', border: 'none', padding: 0 }}>Industries Served</button></li>
+                <li><button onClick={() => { setCurrentPage('experience'); }} style={{ background: 'none', cursor: 'pointer', color: 'inherit', textAlign: 'left', border: 'none', padding: 0 }}>Noida Experience Centre</button></li>
+                <li><button onClick={() => { setCurrentPage('experience'); }} style={{ background: 'none', cursor: 'pointer', color: 'inherit', textAlign: 'left', border: 'none', padding: 0 }}>Gurugram Factory Hub</button></li>
                 <li><button onClick={() => { setCurrentPage('planner'); }} style={{ background: 'none', cursor: 'pointer', color: 'inherit', textAlign: 'left', border: 'none', padding: 0 }}>AI Space Planner</button></li>
-                <li><button onClick={() => { setCurrentPage('builder'); }} style={{ background: 'none', cursor: 'pointer', color: 'inherit', textAlign: 'left', border: 'none', padding: 0 }}>Workspace Customizer</button></li>
               </ul>
             </div>
 

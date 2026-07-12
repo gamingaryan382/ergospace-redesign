@@ -551,4 +551,596 @@ main {
   }
 }
 
+/* Projects Premium Grid Layout */
+.projects-premium-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 3.5rem !important;
+}
+
+@media (max-width: 1024px) {
+  .projects-premium-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-premium-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* Category Style 3 Hover Grid Overlay Styles */
+.catalogue-hover-card-root {
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.catalogue-hover-card-root:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-premium);
+  border-color: var(--accent) !important;
+}
+
+.catalogue-hover-card-root:hover .catalogue-hover-img {
+  transform: scale(1.05);
+}
+
+.catalogue-hover-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.catalogue-hover-card-root:hover .catalogue-hover-overlay {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Showroom Showcase Custom Animations & Transitions */
+
+.fade-transition {
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-out {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.fade-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Category 1: Ergonomic Chairs Showcase */
+.ergo-showcase-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .ergo-showcase-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.ergo-hero-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.ergo-hero-display {
+  width: 100%;
+  height: 520px;
+  background-color: var(--bg-secondary);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .ergo-hero-display {
+    height: 350px;
+  }
+}
+
+.ergo-hero-img {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ergo-hero-display:hover .ergo-hero-img {
+  transform: scale(1.05);
+}
+
+.ergo-angle-controls {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.ergo-angle-btn {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition-fast);
+}
+
+.ergo-angle-btn.active,
+.ergo-angle-btn:hover {
+  background-color: var(--bg-dark);
+  color: white;
+  border-color: var(--bg-dark);
+}
+
+.ergo-models-selector {
+  display: flex;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.ergo-model-tab {
+  background: none;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.ergo-model-tab.active,
+.ergo-model-tab:hover {
+  color: var(--text-primary);
+}
+
+.ergo-model-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1.25rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent);
+}
+
+.ergo-feature-badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.ergo-feature-badge {
+  background-color: rgba(226, 55, 68, 0.06);
+  border: 1px solid rgba(226, 55, 68, 0.12);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 30px;
+  animation: slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.ergo-feature-card {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.ergo-feature-card:hover {
+  border-color: var(--text-secondary);
+  box-shadow: var(--shadow-subtle);
+  transform: translateY(-2px);
+}
+
+/* Category 2: Workstations Showcase */
+.workstation-story-section {
+  position: relative;
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
+.workstation-hero-banner {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 768px) {
+  .workstation-hero-banner {
+    height: 400px;
+  }
+}
+
+.workstation-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+.workstation-hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  padding: clamp(2rem, 6vw, 4rem);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.workstation-hero-overlay * {
+  pointer-events: auto;
+}
+
+.workstation-scroll-gallery {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1.5rem;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  margin: 0 -1.5rem;
+  padding: 0 1.5rem;
+}
+
+.workstation-gallery-card {
+  flex: 0 0 350px;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.workstation-gallery-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--accent);
+}
+
+.workstation-card-img-wrap {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+}
+
+.workstation-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.workstation-gallery-card:hover .workstation-card-img {
+  transform: scale(1.05);
+}
+
+.workstation-details-panel {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 3rem;
+  margin-top: 3.5rem;
+  box-shadow: var(--shadow-premium);
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Category 3: Executive Collection Luxury Gallery */
+.executive-showroom-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: center;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 4rem;
+}
+
+@media (max-width: 1024px) {
+  .executive-showroom-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 2.5rem;
+  }
+}
+
+.executive-gallery-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.executive-stage-display {
+  width: 100%;
+  height: 480px;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .executive-stage-display {
+    height: 300px;
+  }
+}
+
+.executive-stage-img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.executive-thumbnails-row {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.executive-thumb-btn {
+  width: 80px;
+  height: 80px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 6px;
+  transition: var(--transition-fast);
+}
+
+.executive-thumb-btn.active,
+.executive-thumb-btn:hover {
+  border-color: var(--accent);
+  background-color: white;
+}
+
+.executive-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.executive-info-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.executive-spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.executive-spec-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+}
+
+.executive-spec-value {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+/* Category 4: Collaboration Spaces Magazine Mood-board */
+.collab-magazine-moodboard {
+  position: relative;
+  padding: 4rem 0;
+}
+
+.collab-magazine-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .collab-magazine-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+.collab-magazine-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition-smooth);
+}
+
+.collab-magazine-item:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-medium);
+  z-index: 10 !important;
+}
+
+.collab-magazine-item.item-large {
+  grid-column: 1 / 8;
+  height: 500px;
+  z-index: 1;
+}
+
+.collab-magazine-item.item-medium {
+  grid-column: 7 / 13;
+  height: 380px;
+  z-index: 2;
+  margin-top: -5rem;
+}
+
+.collab-magazine-item.item-small-left {
+  grid-column: 2 / 6;
+  height: 320px;
+  z-index: 3;
+  margin-top: -3rem;
+}
+
+.collab-magazine-item.item-small-right {
+  grid-column: 8 / 12;
+  height: 340px;
+  z-index: 3;
+  margin-top: -1rem;
+}
+
+@media (max-width: 768px) {
+  .collab-magazine-item {
+    width: 100% !important;
+    height: 300px !important;
+    margin-top: 0 !important;
+  }
+}
+
+.collab-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.collab-item-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+  color: white;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.collab-cta-box {
+  grid-column: 1 / 13;
+  text-align: center;
+  padding-top: 4rem;
+}
+
+/* Category 6: Height Adjustable Desks Upgraded Layout */
+.desks-showroom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3.5rem;
+}
+
+.desk-showroom-card {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.desk-showroom-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--accent);
+}
+
+.desk-card-image-container {
+  height: 260px;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.desk-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1rem;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.desk-showroom-card:hover .desk-card-img {
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-up-anim {
+  animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+
 

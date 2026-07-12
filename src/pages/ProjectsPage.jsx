@@ -156,9 +156,9 @@ export default function ProjectsPage() {
         ) : (
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '2.5rem'
-          }}>
+            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+            gap: '3.5rem'
+          }} className="projects-premium-grid">
             {displayedProjects.map((proj) => (
               <div 
                 key={proj.id}
@@ -176,7 +176,7 @@ export default function ProjectsPage() {
                 }}
                 className="project-page-card"
               >
-                <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
+                <div style={{ height: '300px', overflow: 'hidden', position: 'relative' }}>
                   <img 
                     src={proj.image} 
                     alt={proj.title} 
